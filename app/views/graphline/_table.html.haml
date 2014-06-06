@@ -1,0 +1,9 @@
+- total_accounts = 50
+- segments = [['Proposal Provided', 5, PipelineStatus::ID_PROPOSAL ], ['Actively Engaged', 10, PipelineStatus::ID_ENGAGED ], ['First Contact', 20, PipelineStatus::ID_FIRST_CONTACT ], ['Periodic Followup', 8, PipelineStatus::ID_FOLLOWUP ], ['Awaiting Activity', 7, PipelineStatus::ID_AWAITING], ['Closed', 1, PipelineStatus::ID_CLOSED]]
+.span12.graphline-stats-table
+  - segments.each do |segment|
+    .graphline-bucket-segment{ id: "#{segment[0].gsub(' ', '_').downcase}_box",  data: { id: segment[2] } }
+      .bucket-name= segment[0]
+      .bucket-count= segment[1]
+      .bucket-percent= "#{bucket_width(segment[1], total_accounts)}%"
+
