@@ -1,0 +1,126 @@
+@mixin boxshadow($full: 0 0 0 $gray){
+  -webkit-box-shadow:   $full;
+  -moz-box-shadow:      $full;
+  -o-box-shadow:        $full;
+  box-shadow:           $full;
+}
+
+$white: #FFF;
+$gray:  #AAA;
+
+/*
+ * Begin Super Awesome Graphline Stats Graph
+ */
+.graphline-stats-container {
+  @include boxshadow(0px 0px 10px -1px rgba(0, 0, 0, 0.55));
+  min-height: 15px !important;
+  border-radius: 5px; }
+
+.graphline-changed {
+  $primary: #C40;
+  position: absolute;
+  left: 100px;
+  color: $primary;
+  font-size: 1.4em; }
+
+.graphline-status-definitions-prompt {
+  $primary: #AAA;
+  position: relative;
+  left: -5px;
+  top:  28px;
+  color: $primary;
+  font-size: 1.4em;
+  &:hover { color: #888; } }
+
+$proposal:      #181;
+$actively:      #7F7;
+$periodic:      #FF4;
+$first_contact: #FA4;
+$awaiting:      #B74;
+$closed:        #944;
+
+.graphline-stats-table {
+  width: 98%;
+  .graphline-bucket-segment {
+    width: 14.8%;
+    padding: 10px;
+    padding-bottom: 2px;
+    float: left;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.05);
+
+    &:hover, &.highlighted-segment {
+      background: rgba(0, 0, 0, 0.2); }
+
+    &#awaiting_activity_box, &#periodic_followup_box, &#proposal_provided_box, &#actively_engaged_box,
+    &#first_contact_box, &#closed_box {
+      &.inactive {
+        color: #bbb;
+        border-bottom: none;
+        background: inherit;
+        &:hover {
+          color: inherit;
+          background: rgba(0, 0, 0, 0.2); } } }
+
+    &#first_contact_box     {
+      border-bottom: 4px solid $first_contact;
+      &.inactive:hover { border-bottom: 4px solid $first_contact; } }
+
+    &#actively_engaged_box  {
+      border-bottom: 4px solid $actively;
+      &.inactive:hover { border-bottom: 4px solid $actively; } }
+
+    &#proposal_provided_box {
+      border-bottom: 4px solid $proposal;
+      &.inactive:hover { border-bottom: 4px solid $proposal; } }
+
+    &#periodic_followup_box {
+      border-bottom: 4px solid $periodic;
+      &.inactive:hover { border-bottom: 4px solid $periodic; } }
+
+    &#awaiting_activity_box {
+      border-bottom: 4px solid $awaiting;
+      &.inactive:hover { border-bottom: 4px solid $awaiting; } }
+
+    &#closed_box {
+      border-bottom: 4px solid $closed;
+      &.inactive:hover { border-bottom: 4px solid $closed; } }
+
+    .bucket-name {
+      float: left;
+      width: 60%; }
+
+    .bucket-count, .bucket-percent {
+      float: left;
+      width: 20%; text-align: right; } } }
+
+#graphline-graph { min-height: 15px; }
+
+.graphline-stats-graph {
+  width: 100%;
+  line-height: 15px;
+  min-height: 15px;
+  transition: all 0.5s ease;
+
+  .graphline-bucket-segment {
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    width: 20%;
+
+    &:hover { text-decoration: none; }
+
+    &#first_contact_segment     { background: $first_contact; }
+    &#actively_engaged_segment  { background: $actively; }
+    &#proposal_provided_segment { background: $proposal; }
+    &#periodic_followup_segment { background: $periodic; }
+    &#awaiting_activity_segment { background: $awaiting; }
+    &#closed_segment            { background: $closed; } } }
+
+.highlighted-segment {
+  $primary: $white;
+  @include boxshadow(0 3px 8px -2px $gray);
+  &.inactive { @include boxshadow(none); }
+  background: rgba(0, 0, 0, 0.2); }
+// End Super Awesome Graphline Stats Graph

@@ -7,6 +7,7 @@ gemspec
 
 gem 'haml-rails'
 gem 'coffee-rails'
+gem 'sass-rails'
 gem 'thin'
 
 # Declare any dependencies that are still in development here instead of in
