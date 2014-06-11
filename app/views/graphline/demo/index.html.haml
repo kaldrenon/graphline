@@ -1,5 +1,12 @@
-.row
-  = render partial: 'graphline/graph'
+.container
+  %h3 Table
+  .row
+    = render partial: 'graphline/table'
 
-.row
-  = render partial: 'graphline/table'
+  .spacer
+    %hr
+
+  %h3 Graph
+  .row
+    = render partial: 'graphline/graph'
+

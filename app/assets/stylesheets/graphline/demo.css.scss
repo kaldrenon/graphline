@@ -1,5 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 .row {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+  display: block;
+}
+
+.container {
+  display: block;
+  width: 98%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
 }

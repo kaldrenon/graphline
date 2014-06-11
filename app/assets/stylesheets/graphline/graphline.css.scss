@@ -13,7 +13,6 @@ $gray:  #AAA;
  */
 .graphline-stats-container {
   @include boxshadow(0px 0px 10px -1px rgba(0, 0, 0, 0.55));
-  min-height: 15px !important;
   border-radius: 5px;
 }
 
@@ -44,11 +43,13 @@ $graph6: #944;
 
 .graphline-stats-table {
   width: 100%;
+  display: inline-block;
   .graphline-bucket-segment {
+    box-sizing: border-box;
+    width: 20%;
     padding: 10px;
     padding-bottom: 2px;
     float: left;
-    display: inline-block;
     background: rgba(0, 0, 0, 0.05);
 
     &:hover, &.highlighted-segment {
@@ -83,20 +84,18 @@ $graph6: #944;
   }
 }
 
-#graphline-graph { min-height: 15px; }
-
 .graphline-stats-graph {
   width: 100%;
   line-height: 15px;
-  min-height: 15px;
   transition: all 0.5s ease;
+  display: inline-block;
 
   .graphline-bucket-segment {
     float: left;
-    display: inline-block;
     box-sizing: border-box;
     height: 100%;
     width: 20%;
+    background: #ABC;
 
     &:hover { text-decoration: none; }
 
