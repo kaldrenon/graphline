@@ -1,3 +1,11 @@
+/*
+ * Variables
+ */
+$white: #FFF;
+$gray:  #AAA;
+
+$everything_else: #D39;
+
 @mixin boxshadow($full: 0 0 0 $gray){
   -webkit-box-shadow:   $full;
   -moz-box-shadow:      $full;
@@ -5,8 +13,32 @@
   box-shadow:           $full;
 }
 
-$white: #FFF;
-$gray:  #AAA;
+@mixin graphnums($numbers: (1 #181) (2 #7F7) (3 #FF4) (4 #FA4) (5 #B74) (6 #944) ) {
+  @each $pair in $numbers {
+    $num:   nth($pair, 1);
+    $color: nth($pair, 2);
+
+    &#table_bucket_#{$num} {
+      border-bottom: 4px solid $color;
+    }
+
+    &#graph_bucket_#{$num} {
+      background: $color;
+    }
+  }
+}
+
+*[id*='table_bucket_'] {
+  @include graphnums;
+}
+
+#table_everything_else {
+  border-bottom: 4px solid $everything_else;
+}
+
+#graph_everything_else {
+  background: $everything_else;
+}
 
 /*
  * Begin Super Awesome Graphline Stats Graph
@@ -34,13 +66,6 @@ $gray:  #AAA;
   &:hover { color: #888; }
 }
 
-$graph1: #181;
-$graph2: #7F7;
-$graph3: #FF4;
-$graph4: #FA4;
-$graph5: #B74;
-$graph6: #944;
-
 .graphline-stats-table {
   width: 100%;
   display: inline-block;
@@ -66,11 +91,10 @@ $graph6: #944;
     }
   }
 
-    &#box     {
-      border-bottom: 4px solid $graph1;
-      &.inactive:hover { border-bottom: 4px solid $graph1;
-    }
-  }
+    //&#box     {
+    //  border-bottom: 4px solid $graph1;
+    //  &.inactive:hover { border-bottom: 4px solid $graph1; }
+    //}
 
     .bucket-name {
       float: left;
@@ -95,11 +119,11 @@ $graph6: #944;
     box-sizing: border-box;
     height: 100%;
     width: 20%;
-    background: #ABC;
+    //background: #ABC;
 
     &:hover { text-decoration: none; }
 
-    &#segment { background: $graph1; }
+    //&#segment { background: $graph1; }
   }
 }
 

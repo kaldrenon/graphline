@@ -2,3 +2,8 @@
   - @segments.each do |segment|
     %a.graphline-bucket-segment{ id: "graph_#{segment[:html_id]}", data: { id: segment[:database_id] } }
       &nbsp;
+
+%style
+  - @segments.each do |segment|
+    = "##{segment[:html_id]} { background: #{segment[:color]} };"
+
